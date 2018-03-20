@@ -1,12 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Friend Finder Survey</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  .modal-backdrop{
+    position:absolute !important; 
+  }
+  </style>
 </head>
 <body>
-    
+
+  <div class="container">
+
+    <div id="hiddenModal" position="absolute" class="modal modal-dialog bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 id="myModalLabel">Friend Match Results</h1>
+      </div>
+      <div class="modal-body" id = "resultModal">
+      </div>
+      <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+  </div>
+
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="glyphicon glyphicon-search"></span> Friend Finders</h1>
+      <hr>
+      <h2 class="text-center">finding friends for fun</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Friend Finding Survey</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form">
+
+              <div class="form-group">
+                <label for="friend-name">Name</label>
+                <input type="text" class="form-control" id="friend-name" placeholder="John Smith">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-photo">Photo URL</label>
+                <input type="text" class="form-control" id="friend-photo" placeholder="https://i.imgur.com/Yjqaez5.jpg">
+              </div>
+              
+              <div class="form-group">
+                <label for="question1">On a scale from 1 to 5, how tall are you?</label>
+                <select class="form-control" id="question1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question2">On a scale from 1 to 5, how much do you weigh?</label>
+                <select class="form-control" id="question2">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question3">On a scale from 1 to 5, how funny are you?</label>
+                <select class="form-control" id="question3">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question4">On a scale from 1 to 5, how smart are you?</label>
+                <select class="form-control" id="question4">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question5">On a scale from 1 to 5, how sexy are you?</label>
+                <select class="form-control" id="question5">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question6">On a scale from 1 to 5, how rich are you?</label>
+                <select class="form-control" id="question6">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question7">On a scale from 1 to 5, how happy are you?</label>
+                <select class="form-control" id="question7">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question8">On a scale from 1 to 5, how racist are you?</label>
+                <select class="form-control" id="question8">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question9">On a scale from 1 to 5, how hungry are you?</label>
+                <select class="form-control" id="question9">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question10">On a scale from 1 to 5, how are you?</label>
+                <select class="form-control" id="question10">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/friends">API Friend Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
 </body>
 </html>
+
+<script type="text/javascript">
+
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+      var newFriend = {
+        friendName: $("#friend-name").val().trim(),
+        friendPhoto: $("#friend-photo").val().trim(),
+        question1: $("#question1").val(),
+        question2: $("#question2").val(),
+        question3: $("#question3").val(),
+        question4: $("#question4").val(),
+        question5: $("#question5").val(),
+        question6: $("#question6").val(),
+        question7: $("#question7").val(),
+        question8: $("#question8").val(),
+        question9: $("#question9").val(),
+        question10: $("#question10").val(),
+      };
+      console.log("new friend: "+newFriend);
+      $.post("/api/friends", newFriend,
+        function(data) {
+          if (data) {
+            console.log(data);
+            $('#resultModal').append('<h2>Friend Name:'+data.name+'</h2>');
+            $('#resultModal').append('<img height="250" width="250" class="img-thumbnail img-circle" src="'+data.photoUrl+'"/>');
+            $('#hiddenModal').modal('toggle');
+          }
+            $("#friend-name").val("");
+            $("#friend-photo").val("");
+            $("#question1").val("");
+            $("#question2").val("");
+            $("#question3").val("");
+            $("#question4").val("");
+            $("#question5").val("");
+            $("#question6").val("");
+            $("#question7").val("");
+            $("#question8").val("");
+            $("#question9").val("");
+            $("#question10").val("");
+          });
+
+    });
+
+</script>
