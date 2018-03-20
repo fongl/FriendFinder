@@ -16,7 +16,7 @@ module.exports = function(app) {
       for (var i = 1; i < 11 ; i++){
         comparer.push(req.body['question'+i]);
       }
-      for (var i = 0; i < friendData.length; i++)
+      for (var i = 0; i < friendData.length-1; i++)
       {
         var comparee = [];  
         for (var j = 1; j <11; j++) {
